@@ -6,7 +6,7 @@
 /*   By: axlee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 11:43:53 by axlee             #+#    #+#             */
-/*   Updated: 2023/09/26 15:56:03 by axlee            ###   ########.fr       */
+/*   Updated: 2023/09/29 16:25:35 by axlee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	ft_putaddress(void *format)
 	return (len);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	void	*memory_address;
 	int		length;
@@ -52,7 +52,7 @@ int	main(void)
 	length = ft_putaddress(memory_address);
 	printf("The length of the hexadecimal address string:%d \n", length);
 	return (0);
-}
+}*/
 
 /* Code Purpose:
  *

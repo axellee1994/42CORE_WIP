@@ -6,7 +6,7 @@
 /*   By: axlee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 12:03:21 by axlee             #+#    #+#             */
-/*   Updated: 2023/09/26 16:11:59 by axlee            ###   ########.fr       */
+/*   Updated: 2023/09/29 16:26:43 by axlee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	ft_putnbr(int n)
 	return (nbr_len);
 }
 
-int	main(void)
+/*int	main(void)
 {
 	int	num;
 	int	length;
@@ -50,4 +50,4 @@ int	main(void)
 	length = ft_putnbr(num);
 	printf("The length of %d is %d \n", num, length);
 	return (0);
-}
+}*/
