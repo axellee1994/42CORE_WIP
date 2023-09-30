@@ -6,7 +6,7 @@
 #    By: axlee <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:45:30 by axlee             #+#    #+#              #
-#    Updated: 2023/09/24 15:49:16 by axlee            ###   ########.fr        #
+#    Updated: 2023/09/30 13:19:12 by axlee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,13 +20,13 @@ SRCS = $(addprefix $(SRCP),$(SRCS_PRINTF))
 
 OBJS = $(SRCS:.c=.o)
 
-HEAD = ./
+HEAD = libft
 
 # **************************************************************************** #
 #                                    LIBFT                                     #
 # **************************************************************************** #
 
-LIBFT_DIR = ./libft/
+LIBFT_DIR = libft/
 LIBFT = libft.a
 LIBFT_AR = $(addprefix $(LIBFT_DIR), $(LIBFT))
 
@@ -37,6 +37,7 @@ LIBFT_AR = $(addprefix $(LIBFT_DIR), $(LIBFT))
 NAME		= libftprintf.a
 AR			= ar rcs
 RM			= rm -f
+LIB			= ranlib
 GCC			= gcc
 CFLAGS 		= -Wall -Wextra -Werror
 
@@ -51,10 +52,22 @@ BLUE		= \033[34m
 #                                   TARGETS                                    #
 # **************************************************************************** #
 
-all: $(NAME) $(LIBFT_AR)
+all: $(NAME)
 
-$(OBJS): %.o: %.c
-	@if ! $(GCC) $(CFLAGS) -c -I $(HEAD) $< -o $@ 2> error.txt; then \
+#$(OBJS): %.o: %.c
+
+$(NAME): $(OBJS)
+	@make -C $(LIBFT_DIR)
+	@mv $(LIBFT_AR) $(NAME)
+	@$(AR) $(NAME) $(OBJS)
+	@$(LIB) $(NAME)
+	@echo "$(GREEN)$(BOLD)SUCCESS$(RESET)"
+	@echo "$(YELLOW)Created: $(words $(OBJS)) object file(s)$(RESET)"
+	@echo "$(YELLOW)Created: $(NAME)$(RESET)"
+
+.c.o:
+	$(GCC) $(CFLAGS) -c $< -o $@ 
+	@if ! $(GCC) $(CFLAGS) -c $< -o $@ 2> error.txt; then \
 		echo "$(RED)$(BOLD)MAKEFILE TERMINATED!$(RESET)"; \
 		echo "$(YELLOW)Unable to create the object file for $<$(RESET)"; \
 		echo "\n\n$(RED)$(BOLD)ERROR$(RESET)"; \
@@ -63,30 +76,6 @@ $(OBJS): %.o: %.c
 		exit 1; \
 	fi
 
-$(LIBFT_AR):
-	@make print -C $(LIBFT_DIR)
-	@make string -C $(LIBFT_DIR)
-
-$(NAME): $(OBJS) $(LIBFT_AR)
-	@if ! cp $(LIBFT_AR) $(NAME) >> error.txt 2>&1; then \
-		echo "$(RED)$(BOLD)MAKEFILE TERMINATED!$(RESET)"; \
-		echo "$(YELLOW)Error copying $(LIBFT_AR) to $(NAME)$(RESET)"; \
-		echo "\n\n$(RED)$(BOLD)ERROR$(RESET)"; \
-		sed '$$d' error.txt; \
-		echo "\n\n$(YELLOW)EXITING$(RESET)"; \
-		exit 1; \
-	fi
-	@if ! $(AR) $@ $^ >> error.txt 2>&1; then \
-		echo "$(RED)$(BOLD)MAKEFILE TERMINATED!$(RESET)"; \
-		echo "$(YELLOW)Error creating $(NAME)$(RESET)"; \
-		echo "\n\n$(RED)$(BOLD)ERROR$(RESET)"; \
-		sed '$$d' error.txt; \
-		echo "\n\n$(YELLOW)EXITING$(RESET)"; \
-		exit 1; \
-	fi
-	@echo "$(GREEN)$(BOLD)SUCCESS$(RESET)"
-	@echo "$(YELLOW)Created: $(words $(OBJS) $(LIBFT_AR)) object file(s)$(RESET)"
-	@echo "$(YELLOW)Created: $(NAME)$(RESET)"
 
 clean:
 	@make fclean -C $(LIBFT_DIR)

@@ -6,7 +6,7 @@
 /*   By: axlee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 14:12:59 by axlee             #+#    #+#             */
-/*   Updated: 2023/09/24 14:50:23 by axlee            ###   ########.fr       */
+/*   Updated: 2023/09/30 12:57:22 by axlee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
-# include "./libft/includes/libft.h"
+# include "./libft/libft.h"
 
 int	ft_printf(const char *str, ...);
 
