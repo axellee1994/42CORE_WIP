@@ -1,0 +1,13 @@
+# all the binary files that will cause me to fail
+*.a
+*.out
+*.o
+*/*.o
+
+# main
+main.c
+
+# pdf
+*.pdf
+
+
