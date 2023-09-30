@@ -6,7 +6,7 @@
 #    By: axlee <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/24 10:45:30 by axlee             #+#    #+#              #
-#    Updated: 2023/09/30 13:19:32 by axlee            ###   ########.fr        #
+#    Updated: 2023/09/30 13:29:16 by axlee            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,6 +109,13 @@ BLUE		= \033[34m
 
 all: $(NAME)
 
+$(NAME): $(OBJS)
+	@$(AR) $(NAME) $(OBJS)
+	@$(LIB) $(NAME)
+	@echo "$(GREEN)$(BOLD)SUCCESS$(RESET)"
+	@echo "$(YELLOW)Created: $(words $(OBJS)) object file(s)$(RESET)"
+	@echo "$(YELLOW)Created: $(NAME)$(RESET)"
+
 .c.o:
 	@$(GCC) $(CFLAGS) $(HEAD) -c $< -o $@
 	@if ! $(GCC) $(CFLAGS) -c -I $(HEAD) $< -o $@ 2> error.txt; then \
@@ -120,12 +127,6 @@ all: $(NAME)
 		exit 1; \
 	fi
 
-$(NAME): $(OBJS)
-	@$(AR) $(NAME) $(OBJS)
-#	@$(LIB) $(NAME)
-	@echo "$(GREEN)$(BOLD)SUCCESS$(RESET)"
-	@echo "$(YELLOW)Created: $(words $(OBJS)) object file(s)$(RESET)"
-	@echo "$(YELLOW)Created: $(NAME)$(RESET)"
 
 
 clean:
