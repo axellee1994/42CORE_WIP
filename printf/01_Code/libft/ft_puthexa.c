@@ -6,7 +6,7 @@
 /*   By: axlee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 15:43:22 by axlee             #+#    #+#             */
-/*   Updated: 2023/09/24 11:57:11 by axlee            ###   ########.fr       */
+/*   Updated: 2023/09/30 14:29:51 by axlee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ int	ft_puthexa(unsigned long n, char format)
 	i = 0;
 	num = (unsigned int)n;
 	base_len = ft_strlen(base);
-	if (num >= (base_len - 1))
+	if (num > (base_len))
 	{
 		i += ft_puthexa(num / base_len, format);
-		i += ft_putchar(*base + (num % base_len));
+		i += ft_putchar(base[num % base_len]);
 	}
+	else
+		i += ft_putchar(base[num % base_len]);
 	return (i);
 }

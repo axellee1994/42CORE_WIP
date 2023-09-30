@@ -6,7 +6,7 @@
 /*   By: axlee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 14:19:09 by axlee             #+#    #+#             */
-/*   Updated: 2023/09/24 15:54:04 by axlee            ###   ########.fr       */
+/*   Updated: 2023/09/30 14:04:13 by axlee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static	int	ft_dataformat(va_list args, const char format)
 		return (ft_putchar((va_arg(args, int))));
 	else if (format == 's')
 		return (ft_putstr((va_arg(args, char *))));
-	else if (format == 'd' || format == 's')
+	else if (format == 'd' || format == 'i')
 		return (ft_putnbr((va_arg(args, int))));
 	else if (format == 'X' || format == 'x')
 		return (ft_puthexa(va_arg(args, unsigned int), format));
@@ -29,7 +29,7 @@ static	int	ft_dataformat(va_list args, const char format)
 		ptr = va_arg(args, void *);
 		if (ptr)
 			return (ft_putaddress(ptr));
-		return (ft_putstr("0x0"));
+		return (ft_putstr("(nil)"));
 	}
 	else if (format == 'u')
 		return (ft_putunsigned(va_arg(args, unsigned int)));
