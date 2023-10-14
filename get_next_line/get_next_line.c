@@ -6,7 +6,11 @@
 /*   By: axlee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 12:04:39 by axlee             #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/10/15 01:48:50 by axlee            ###   ########.fr       */
+=======
+/*   Updated: 2023/10/14 16:31:58 by axlee            ###   ########.fr       */
+>>>>>>> 5c8e056065212afccb38e9b976efa557537a2a1e
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +23,20 @@ char	*ft_newread(int fd)
 
 	aux = malloc(BUFFER_SIZE + 1);
 	if (!aux)
+<<<<<<< HEAD
 		return (free(aux), NULL);
 	nbytes = read(fd, aux, BUFFER_SIZE);
 	if (nbytes < 0)
 		return (free(aux), NULL);
+=======
+		return (NULL);
+	nbytes = read(fd, aux, BUFFER_SIZE);
+	if (nbytes < 0)
+	{
+		free(aux);
+		return (NULL);
+	}
+>>>>>>> 5c8e056065212afccb38e9b976efa557537a2a1e
 	aux[nbytes] = '\0';
 	return (aux);
 }
