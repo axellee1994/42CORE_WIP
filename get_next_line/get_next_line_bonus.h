@@ -6,11 +6,7 @@
 /*   By: axlee <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/14 13:22:24 by axlee             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/10/15 01:27:04 by axlee            ###   ########.fr       */
-=======
-/*   Updated: 2023/10/14 16:26:58 by axlee            ###   ########.fr       */
->>>>>>> 5c8e056065212afccb38e9b976efa557537a2a1e
+/*   Updated: 2023/10/15 02:04:42 by axlee            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +25,7 @@
 
 # endif
 
-<<<<<<< HEAD
 /*Retrieves index of first appearance of i in s, or -1 */
-=======
-/*Retrieves index of first appearance of i in s, or -1 */ 
->>>>>>> 5c8e056065212afccb38e9b976efa557537a2a1e
 
 int		ft_strchr_index(const char *s, int c);
 
